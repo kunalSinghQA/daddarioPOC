@@ -140,5 +140,6 @@
   "resultPagePopup": [
     { "save": "Save your results!" },
     { "skip": "Skip to results" }
-  ]
+  ],
+  "viewProducts": "View Product"
 }

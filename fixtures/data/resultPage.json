@@ -8,5 +8,7 @@
     { "navElement": "Genre" },
     { "navElement": "Sustain" },
     { "navElement": "Tone" }
-  ]
+  ],
+  "addToCart": "Add to Cart",
+  "goToCart": "GO TO CART"
 }
