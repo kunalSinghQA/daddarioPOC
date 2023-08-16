@@ -11,7 +11,7 @@ exports.ProductCreation = class ProductCreation {
       page.locator(`//div[contains(text(),"${text}")]`);
     this.backButton = page.getByRole('button', { name: 'Back' });
     this.nextButton = page.getByRole('button', { name: 'Next' });
-    this.textInDrumbHead = (text) => page.getByText(text);
+    this.textInDrumHead = (text) => page.getByText(text);
     this.saveTheResult = (text) =>
       page.locator(`//span[contains(text(),"${text}")]`);
     this.skipTheResult = (text) =>
@@ -36,7 +36,7 @@ exports.ProductCreation = class ProductCreation {
     );
   };
 
-  selectingDrumbSize = async (option) => {
+  selectingDrumSize = async (option) => {
     await executeStep(
       this.test,
       this.drumTypeOptions(option),
@@ -45,7 +45,7 @@ exports.ProductCreation = class ProductCreation {
     );
   };
 
-  selectingDrumbReason = async (option) => {
+  selectingDrumReason = async (option) => {
     await executeStep(
       this.test,
       this.drumTypeOptions(option),
@@ -54,7 +54,7 @@ exports.ProductCreation = class ProductCreation {
     );
   };
 
-  selectingDrumbEnvrioment = async (option) => {
+  selectingDrumEnvrioment = async (option) => {
     await executeStep(
       this.test,
       this.drumTypeOptions(option),
@@ -63,7 +63,7 @@ exports.ProductCreation = class ProductCreation {
     );
   };
 
-  selectingDrumbGenre = async (option) => {
+  selectingDrumGenre = async (option) => {
     await executeStep(
       this.test,
       this.drumTypeOptions(option),
@@ -72,28 +72,19 @@ exports.ProductCreation = class ProductCreation {
     );
   };
 
-  selectingDrumbSustain = async (option) => {
+  selectingDrumSustain = async (option) => {
     await executeStep(
       this.test,
-      this.drumFindByText(option),
+      this.drumTypeOptions(option),
       'click',
       `Selecting ${option} from available options`
     );
   };
 
-  selectingDrumbTone = async (option) => {
+  selectingDrumTone = async (option) => {
     await executeStep(
       this.test,
-      this.drumFindByText(option),
-      'click',
-      `Selecting ${option} from available options`
-    );
-  };
-
-  selectingSkipResult = async (option) => {
-    await executeStep(
-      this.test,
-      this.skipTheResult(option),
+      this.drumTypeOptions(option),
       'click',
       `Selecting ${option} from available options`
     );
