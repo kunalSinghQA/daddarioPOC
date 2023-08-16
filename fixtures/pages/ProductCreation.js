@@ -1,7 +1,7 @@
 const { executeStep } = require("../../utilities/actions");
 
 require("dotenv").config();
-exports.Homepage = class Homepage {
+exports.ProductCreation = class ProductCreation {
   constructor(page, test) {
     this.page = page;
     this.test = test;

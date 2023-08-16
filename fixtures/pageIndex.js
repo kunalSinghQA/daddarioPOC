@@ -1,2 +1,3 @@
 import { Homepage } from "./pages/Homepage";
-export { Homepage };
+import { ProductCreation } from "./pages/ProductCreation";
+export { Homepage, ProductCreation };

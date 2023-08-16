@@ -25,7 +25,7 @@ test("Validate products are visible", async ({ page }) => {
   }
 });
 
-test.only("Validate get started button is visible and navigation is correct", async ({
+test("Validate get started button is visible and navigation is correct", async ({
   page,
 }) => {
   const homepage = new Sections.Homepage(page, test);
@@ -51,5 +51,34 @@ test.only("Validate get started button is visible and navigation is correct", as
     testData.slickSliderItems[0].drumhead[1].buttonName,
     testData.slickSliderItems[0].drumhead[0].title
   );
-  
+  await expect(page).toHaveURL(/drumhead-finder/);
+});
+
+test("Validate get selecting a drumhead option once selected navigate to new page", async ({
+  page,
+}) => {
+  const homepage = new Sections.Homepage(page, test);
+  // await homepage.navigateToHomepage(`${use.baseURL}/`);
+  await page.goto(`${use.baseURL}/`);
+  await expect(
+    homepage.acceptOrDeclineCokkies(testData.cokkies.accept),
+    `Verifying ${testData.cokkies.accept} button should be visible`
+  ).toBeVisible();
+  await expect(
+    homepage.acceptOrDeclineCokkies(testData.cokkies.decline),
+    `Verifying ${testData.cokkies.decline} button should be visible`
+  ).toBeVisible();
+  await homepage.handleCokkies(testData.cokkies.accept);
+  await expect(
+    homepage.selectGetStarted(
+      testData.slickSliderItems[0].drumhead[1].buttonName,
+      testData.slickSliderItems[0].drumhead[0].title
+    ),
+    `Verifying ${testData.slickSliderItems[0].drumhead[1].buttonName} button should be visible`
+  ).toBeVisible();
+  await homepage.selectingGetStarted(
+    testData.slickSliderItems[0].drumhead[1].buttonName,
+    testData.slickSliderItems[0].drumhead[0].title
+  );
+  await expect(page).toHaveURL(/drumhead-finder/);
 });
