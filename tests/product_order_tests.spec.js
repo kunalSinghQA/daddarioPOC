@@ -1,9 +1,9 @@
-const { test, expect } = require("@playwright/test");
-const Sections = require("../fixtures/pageIndex");
-const testData = require("../fixtures/data/homepage.json");
-const productsData = require("../fixtures/data/productCreation.json");
-const { use } = require("../playwright.config");
-require("dotenv").config();
+const { test, expect } = require('@playwright/test');
+const Sections = require('../fixtures/pageIndex');
+const testData = require('../fixtures/data/homepage.json');
+const productsData = require('../fixtures/data/productCreation.json');
+const { use } = require('../playwright.config');
+require('dotenv').config();
 
 test("'TC-01' Validate products are visible", async ({ page }) => {
   const homepage = new Sections.Homepage(page, test);
@@ -92,24 +92,33 @@ test("'TC-03' Validate get selecting a drumhead option once selected navigate to
   ).toBeVisible();
 });
 
-test("'TC-04' Verify that the selected drum 'Size' is highlighted and NEXT button is enabled", async ({
+test.only("'TC-04' Verify that the selected drum 'Size' is highlighted and NEXT button is enabled", async ({
   page,
 }) => {
   const homepage = new Sections.Homepage(page, test);
   // await homepage.navigateToHomepage(`${use.baseURL}/`);
   await page.goto(`${use.baseURL}/`);
-  await expect(
-    homepage.acceptOrDeclineCokkies(testData.cokkies.accept),
-    `Verifying ${testData.cokkies.accept} button should be visible`
-  ).toBeVisible();
   await homepage.handleCokkies(testData.cokkies.accept);
+  await expect(
+    homepage.selectGetStarted(
+      testData.slickSliderItems[0].drumhead[1].buttonName,
+      testData.slickSliderItems[0].drumhead[0].title
+    ),
+    `Verifying ${testData.slickSliderItems[0].drumhead[1].buttonName} button should be visible`
+  ).toBeVisible();
   await homepage.selectingGetStarted(
-    testData.slickSliderItems[0].drumhead[1].buttonName,
-    testData.slickSliderItems[0].drumhead[0].title
+    testData.slickSliderItems[0].drumhead[1].buttonName
   );
   const productCreation = new Sections.ProductCreation(page, test);
+  await expect(page).toHaveURL(/drumhead-finder/);
   await productCreation.selectingDrum(productsData.typeOfDrumbs[0].type);
-  await productCreation.clickingOnNextBuuton();
+  await productCreation.clickingOnNextButton();
+  await productCreation.selectingDrum(productsData.typeOfDrumbHeads[0].type);
+  await productCreation.clickingOnNextButton();
+  await expect(
+    productCreation.textInDrumbTypes(productsData.textInDrumbSize),
+    `verifying text ${productsData.textInDrumbSize} is visible`
+  );
 });
 
 test("'TC-07' Validate Enviroment values and forward /back button functionality", async ({
