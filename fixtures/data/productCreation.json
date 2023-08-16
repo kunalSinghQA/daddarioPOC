@@ -1,146 +1,146 @@
 {
-    "typeOfDrumbs": [
-        {
-            "type": "Drum Set"
-        },
-        {
-            "type": "Marching"
-        },
-        {
-            "type": "Concert Percussion"
-        },
-        {
-            "type": "Hand Percussion"
-        }
-    ],
-    "textInDrumbType": "What type of drums are you playing?",
-    "typeOfDrumbHeads": [
-        {
-            "type": "Snare Drum"
-        },
-        {
-            "type": "Tom Drum"
-        },
-        {
-            "type": "Bass Drum"
-        }
-    ],
-    "textInDrumbHead": "Which drumhead are you looking for?",
-    "typeOfDrumbSize": [
-        {
-            "type": "10"
-        },
-        {
-            "type": "12"
-        },
-        {
-            "type": "13"
-        },
-        {
-            "type": "14"
-        }
-    ],
-    "textInDrumbSize": "What size do you play?",
-    "typeOfDrumbReason": [
-        {
-            "type": "Replacing a Broken Drumhead"
-        },
-        {
-            "type": "Replacing an Old Drumhead"
-        },
-        {
-            "type": "Exploring new Sounds"
-        },
-        {
-            "type": "Buying a Gift for Someone"
-        },
-        {
-            "type": "Switching to EVANS Brand"
-        }
-    ],
-    "textInDrumbReason": "Why are you changing your head?",
-    "typeOfDrumbEnvironmnet ": [
-        {
-            "type": "I DO NOT HAVE VOLUME CONSTRAINTS"
-        },
-        {
-            "type": "I DO HAVE VOLUME CONSTRAINTS"
-        }
-    ],
-    "textInDrumbEnvironment": "Will you be playing this head in an environment with volume constraints?",
-    "typeOfDrumbGenre ": [
-        {
-            "type": "A Mix of Everything"
-        },
-        {
-            "type": "Big Band"
-        },
-        {
-            "type": "Blues"
-        },
-        {
-            "type": "Electronic"
-        },
-        {
-            "type": "Gospel / Worship"
-        },
-        {
-            "type": "Jazz / Fusion"
-        },
-        {
-            "type": "Metal / Prog"
-        },
-        {
-            "type": "R&B / Neo-Soul"
-        },
-        {
-            "type": "Rock / Pop"
-        },
-        {
-            "type": "Other"
-        }
-    ],
-    "textInDrumbGenre": "What style of music do you primarily play?",
-    "sustainabilityScale": [
-        {
-            "type": "As short as possible"
-        },
-        {
-            "type": "Somewhat damped"
-        },
-        {
-            "type": "Balanced"
-        },
-        {
-            "type": "Somewhat open"
-        },
-        {
-            "type": "Somewhat open"
-        },
-        {
-            "type": "As much as possible"
-        }
-    ],
-    "textInDrumbSustain": "How much sustain do you want?",
-    "toneScale": [
-        {
-            "type": "As short as possible"
-        },
-        {
-            "type": "Somewhat damped"
-        },
-        {
-            "type": "Balanced"
-        },
-        {
-            "type": "Somewhat open"
-        },
-        {
-            "type": "Somewhat open"
-        },
-        {
-            "type": "As much as possible"
-        }
-    ],
-    "textInDrumbTone": "What type of tone are you looking for?"
+  "typeOfDrumbs": [
+    {
+      "type": "Drum Set"
+    },
+    {
+      "type": "Marching"
+    },
+    {
+      "type": "Concert Percussion"
+    },
+    {
+      "type": "Hand Percussion"
+    }
+  ],
+  "textInDrumbType": "What type of drums are you playing?",
+  "typeOfDrumbHeads": [
+    {
+      "type": "Snare Drum"
+    },
+    {
+      "type": "Tom Drum"
+    },
+    {
+      "type": "Bass Drum"
+    }
+  ],
+  "textInDrumbHead": "Which drumhead are you looking for?",
+  "typeOfDrumbSize": [
+    {
+      "type": "10"
+    },
+    {
+      "type": "12"
+    },
+    {
+      "type": "13"
+    },
+    {
+      "type": "14"
+    }
+  ],
+  "textInDrumbSize": "What size do you play?",
+  "typeOfDrumbReason": [
+    {
+      "type": "Replacing a Broken Drumhead"
+    },
+    {
+      "type": "Replacing an Old Drumhead"
+    },
+    {
+      "type": "Exploring new Sounds"
+    },
+    {
+      "type": "Buying a Gift for Someone"
+    },
+    {
+      "type": "Switching to EVANS Brand"
+    }
+  ],
+  "textInDrumbReason": "Why are you changing your head?",
+  "typeOfDrumbEnvironmnet": [
+    {
+      "type": "I DO NOT HAVE VOLUME CONSTRAINTS"
+    },
+    {
+      "type": "I DO HAVE VOLUME CONSTRAINTS"
+    }
+  ],
+  "textInDrumbEnvironment": "Will you be playing this head in an environment with volume constraints?",
+  "typeOfDrumbGenre": [
+    {
+      "type": "A Mix of Everything"
+    },
+    {
+      "type": "Big Band"
+    },
+    {
+      "type": "Blues"
+    },
+    {
+      "type": "Electronic"
+    },
+    {
+      "type": "Gospel / Worship"
+    },
+    {
+      "type": "Jazz / Fusion"
+    },
+    {
+      "type": "Metal / Prog"
+    },
+    {
+      "type": "R&B / Neo-Soul"
+    },
+    {
+      "type": "Rock / Pop"
+    },
+    {
+      "type": "Other"
+    }
+  ],
+  "textInDrumbGenre": "What style of music do you primarily play?",
+  "sustainabilityScale": [
+    {
+      "type": "As short as possible"
+    },
+    {
+      "type": "Somewhat damped"
+    },
+    {
+      "type": "Balanced"
+    },
+    {
+      "type": "Somewhat open"
+    },
+    {
+      "type": "Somewhat open"
+    },
+    {
+      "type": "As much as possible"
+    }
+  ],
+  "textInDrumbSustain": "How much sustain do you want?",
+  "toneScale": [
+    {
+      "type": "As short as possible"
+    },
+    {
+      "type": "Somewhat damped"
+    },
+    {
+      "type": "Balanced"
+    },
+    {
+      "type": "Somewhat open"
+    },
+    {
+      "type": "Somewhat open"
+    },
+    {
+      "type": "As much as possible"
+    }
+  ],
+  "textInDrumbTone": "What type of tone are you looking for?"
 }
