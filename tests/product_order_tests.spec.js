@@ -131,6 +131,7 @@ test("'TC-06' Verify that the selected drum 'Size' is highlighted and NEXT butto
     `verifying text ${productsData.textInDrumSize} is visible`
   ).toBeVisible;
 });
+
 test("'TC-07' Verify that the selected drum 'Size' is highlighted and NEXT button is enabled", async ({
   page,
 }) => {
@@ -178,6 +179,7 @@ test("'TC-07' Verify that the selected drum 'Size' is highlighted and NEXT butto
     `verifying text ${productsData.textInDrumReason} is visible`
   ).toBeVisible;
 });
+
 test("'TC-08' Validate Enviroment values and forward /back button functionality", async ({
   page,
 }) => {
@@ -230,7 +232,7 @@ test("'TC-08' Validate Enviroment values and forward /back button functionality"
   ).toBeVisible();
 });
 
-test("'TC-08' Validate Genre values and forward /back button functionality", async ({
+test("'TC-09' Validate Genre values and forward /back button functionality", async ({
   page,
 }) => {
   const homepage = new Sections.Homepage(page, test);
