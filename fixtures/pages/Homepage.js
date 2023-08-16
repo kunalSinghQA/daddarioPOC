@@ -17,6 +17,8 @@ exports.Homepage = class Homepage {
       page.locator(
         `//a[contains(text(),"${buttonName}")][contains(@title,"${title}")]/ancestor::div[contains(@class,"slick-active")]`
       );
+    this.selectGetStartedButton = (buttonName) =>
+      page.getByRole("link", { name: `${buttonName}`, exact: true });
   }
 
   navigateToHomepage = async (URL) => {
@@ -47,10 +49,10 @@ exports.Homepage = class Homepage {
     );
   };
 
-  selectingGetStarted = async (button, title) => {
+  selectingGetStarted = async (button) => {
     await executeStep(
       this.test,
-      this.selectGetStarted(button, title),
+      this.selectGetStartedButton(button),
       "click",
       `Selecting ${button} from top menu`
     );

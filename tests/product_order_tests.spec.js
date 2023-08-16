@@ -61,25 +61,21 @@ test.only("'TC-03' Validate get selecting a drumhead option once selected naviga
   const homepage = new Sections.Homepage(page, test);
   // await homepage.navigateToHomepage(`${use.baseURL}/`);
   await page.goto(`${use.baseURL}/`);
-  await expect(
-    homepage.acceptOrDeclineCokkies(testData.cokkies.accept),
-    `Verifying ${testData.cokkies.accept} button should be visible`
-  ).toBeVisible();
   await homepage.handleCokkies(testData.cokkies.accept);
-  // await expect(
-  //   homepage.selectGetStarted(
-  //     testData.slickSliderItems[0].drumhead[1].buttonName,
-  //     testData.slickSliderItems[0].drumhead[0].title
-  //   ),
-  //   `Verifying ${testData.slickSliderItems[0].drumhead[1].buttonName} button should be visible`
-  // ).toBeVisible();
+  await expect(
+    homepage.selectGetStarted(
+      testData.slickSliderItems[0].drumhead[1].buttonName,
+      testData.slickSliderItems[0].drumhead[0].title
+    ),
+    `Verifying ${testData.slickSliderItems[0].drumhead[1].buttonName} button should be visible`
+  ).toBeVisible();
   await homepage.selectingGetStarted(
-    testData.slickSliderItems[0].drumhead[1].buttonName,
-    testData.slickSliderItems[0].drumhead[0].title
+    testData.slickSliderItems[0].drumhead[1].buttonName
   );
   const productCreation = new Sections.ProductCreation(page, test);
-  // await expect(page).toHaveURL(/drumhead-finder/);
+  await expect(page).toHaveURL(/drumhead-finder/);
   for (let i = 0; i <= productsData.typeOfDrumbs.length; i++) {
+    console.log(productsData.typeOfDrumbs[i].type);
     await expect(
       productCreation.drumheadOptions(productsData.typeOfDrumbs[i].type),
       `${productsData.typeOfDrumbs[i].type} is visible`

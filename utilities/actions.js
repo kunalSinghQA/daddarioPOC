@@ -4,6 +4,9 @@ exports.executeStep = async (test, element, action, description, data) => {
       case "click":
         await element.click();
         break;
+      case "forceClick":
+        await element.click({force: true});
+        break;
       case "fill":
         await element.fill(data[0]);
         break;

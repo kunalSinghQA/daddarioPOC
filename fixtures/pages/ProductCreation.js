@@ -6,7 +6,7 @@ exports.ProductCreation = class ProductCreation {
     this.page = page;
     this.test = test;
     this.drumheadOptions = (option) =>
-      page.locator(`//div[contains(@data-name,${option})]`);
+      page.locator(`//div[contains(@data-name,"${option}")]`);
     this.backButton = page.getByRole("button", { name: "Back" });
     this.nextButton = page.getByRole("button", { name: "Next" });
     this.textInDrumbTypes = (text) => page.getByText(text);
