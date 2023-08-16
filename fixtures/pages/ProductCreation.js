@@ -11,7 +11,8 @@ exports.ProductCreation = class ProductCreation {
       page.locator(`//div[contains(text(),"${text}")]`);
     this.backButton = page.getByRole('button', { name: 'Back' });
     this.nextButton = page.getByRole('button', { name: 'Next' });
-    this.textInDrumHead = (text) => page.getByText(text);
+    this.textInDrumHead = (text) => page.getByText(text).first()
+    // this.textInDrumTone = (text) => 
     this.saveTheResult = (text) =>
       page.locator(`//span[contains(text(),"${text}")]`);
     this.skipTheResult = (text) =>
@@ -75,16 +76,17 @@ exports.ProductCreation = class ProductCreation {
   selectingDrumSustain = async (option) => {
     await executeStep(
       this.test,
-      this.drumTypeOptions(option),
+      this.textInDrumHead(option),
       'click',
       `Selecting ${option} from available options`
     );
+    await this.page.waitForTimeout(1000);
   };
 
   selectingDrumTone = async (option) => {
     await executeStep(
       this.test,
-      this.drumTypeOptions(option),
+      this.textInDrumHead(option),
       'click',
       `Selecting ${option} from available options`
     );

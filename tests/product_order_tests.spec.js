@@ -92,7 +92,7 @@ test("'TC-03' Validate get selecting a drumhead option once selected navigate to
   ).toBeVisible();
 });
 
-test("'TC-06' Verify that the selected drum 'Size' is highlighted and NEXT button is enabled", async ({
+test("'TC-04' Verify that the selected drum 'Size' is highlighted and NEXT button is enabled", async ({
   page,
 }) => {
   const homepage = new Sections.Homepage(page, test);
@@ -131,7 +131,8 @@ test("'TC-06' Verify that the selected drum 'Size' is highlighted and NEXT butto
     `verifying text ${productsData.textInDrumSize} is visible`
   ).toBeVisible;
 });
-test("'TC-07' Verify that the selected drum 'Size' is highlighted and NEXT button is enabled", async ({
+
+test("'TC-05' Verify that the selected drum 'Size' is highlighted and NEXT button is enabled", async ({
   page,
 }) => {
   const homepage = new Sections.Homepage(page, test);
@@ -178,7 +179,8 @@ test("'TC-07' Verify that the selected drum 'Size' is highlighted and NEXT butto
     `verifying text ${productsData.textInDrumReason} is visible`
   ).toBeVisible;
 });
-test("'TC-08' Validate Enviroment values and forward /back button functionality", async ({
+
+test("'TC-06' Validate Enviroment values and forward /back button functionality", async ({
   page,
 }) => {
   const homepage = new Sections.Homepage(page, test);
@@ -230,7 +232,7 @@ test("'TC-08' Validate Enviroment values and forward /back button functionality"
   ).toBeVisible();
 });
 
-test("'TC-08' Validate Genre values and forward /back button functionality", async ({
+test("'TC-07' Validate Genre values and forward /back button functionality", async ({
   page,
 }) => {
   const homepage = new Sections.Homepage(page, test);
@@ -288,7 +290,7 @@ test("'TC-08' Validate Genre values and forward /back button functionality", asy
   ).toBeVisible();
 });
 
-test.only("'TC-09' Validate Tone values and forward /back button functionality", async ({
+test.only("'TC-08' Validate Tone values and forward /back button functionality", async ({
   page,
 }) => {
   const homepage = new Sections.Homepage(page, test);
@@ -344,7 +346,7 @@ test.only("'TC-09' Validate Tone values and forward /back button functionality",
     `${productsData.textInDrumSustain} is visible`
   ).toBeVisible();
   await productCreation.clickingOnNextButton();
-  await productCreation.selectingDrumGenre(productsData.toneScale[0].type);
+  await productCreation.selectingDrumTone(productsData.toneScale[0].type);
   await productCreation.clickingOnNextButton();
   await expect(
     productCreation.textInDrumHead(productsData.resultPagePopup[0].save),

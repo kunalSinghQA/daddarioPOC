@@ -121,22 +121,19 @@
   "textInDrumSustain": "How much sustain do you want?",
   "toneScale": [
     {
-      "type": "As short as possible"
+      "type": "As dark as possible"
     },
     {
-      "type": "Somewhat damped"
+      "type": "Somewhat dark"
     },
     {
       "type": "Balanced"
     },
     {
-      "type": "Somewhat open"
+      "type": "Somewhat bright"
     },
     {
-      "type": "Somewhat open"
-    },
-    {
-      "type": "As much as possible"
+      "type": "As bright as possible"
     }
   ],
   "textInDrumTone": "What type of tone are you looking for?",
