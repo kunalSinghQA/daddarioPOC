@@ -92,7 +92,7 @@ test("'TC-03' Validate get selecting a drumhead option once selected navigate to
   ).toBeVisible();
 });
 
-test.only("'TC-04' Verify that the selected drum 'Size' is highlighted and NEXT button is enabled", async ({
+test("'TC-04' Verify that the selected drum 'Size' is highlighted and NEXT button is enabled", async ({
   page,
 }) => {
   const homepage = new Sections.Homepage(page, test);
@@ -177,7 +177,7 @@ test("'TC-07' Validate Enviroment values and forward /back button functionality"
   ).toBeVisible();
 });
 
-test.only("'TC-08' Validate Genre values and forward /back button functionality", async ({
+test("'TC-08' Validate Genre values and forward /back button functionality", async ({
   page,
 }) => {
   const homepage = new Sections.Homepage(page, test);
@@ -206,11 +206,11 @@ test.only("'TC-08' Validate Genre values and forward /back button functionality"
   );
   await productCreation.clickingOnNextButton();
   await productCreation.selectingDrumbReason(
-    productsData.typeOfDrumbEnvironmnet[0].type
+    productsData.typeOfDrumbReason[0].type
   );
   await productCreation.clickingOnNextButton();
   await productCreation.selectingDrumbEnvrioment(
-    productsData.typeOfDrumbReason[0].type
+    productsData.typeOfDrumbEnvironmnet[0].type
   );
   await productCreation.clickingOnNextButton();
   for (let i = 0; i < productsData.typeOfDrumbGenre.length; i++) {
@@ -226,7 +226,7 @@ test.only("'TC-08' Validate Genre values and forward /back button functionality"
   ).toBeVisible();
   await productCreation.clickingOnNextButton();
   await productCreation.selectingDrumbGenre(
-    productsData.typeOfDrumbEnvironmnet[0].type
+    productsData.typeOfDrumbGenre[0].type
   );
   await productCreation.clickingOnNextButton();
   await expect(
