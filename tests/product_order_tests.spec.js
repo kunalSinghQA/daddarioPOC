@@ -131,7 +131,7 @@ test("'TC-06' Verify that the selected drum 'Size' is highlighted and NEXT butto
     `verifying text ${productsData.textInDrumSize} is visible`
   ).toBeVisible;
 });
-test.only("'TC-07' Verify that the selected drum 'Size' is highlighted and NEXT button is enabled", async ({
+test("'TC-07' Verify that the selected drum 'Size' is highlighted and NEXT button is enabled", async ({
   page,
 }) => {
   const homepage = new Sections.Homepage(page, test);
