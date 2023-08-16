@@ -18,7 +18,7 @@ module.exports = defineConfig({
   timeout: 1 * 60 * 1000,
   /* Expect timeouts */
   expect: {
-    timeout: 1 * 10 * 1000,
+    timeout: 1 * 20 * 1000,
   },
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,

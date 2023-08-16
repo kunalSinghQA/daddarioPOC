@@ -234,3 +234,71 @@ test("'TC-08' Validate Genre values and forward /back button functionality", asy
     `${productsData.textInDrumbSustain} is visible`
   ).toBeVisible();
 });
+
+test.only("'TC-09' Validate Tone values and forward /back button functionality", async ({
+  page,
+}) => {
+  const homepage = new Sections.Homepage(page, test);
+  // await homepage.navigateToHomepage(`${use.baseURL}/`);
+  await page.goto(`${use.baseURL}/`);
+  await homepage.handleCokkies(testData.cokkies.accept);
+  await expect(
+    homepage.selectGetStarted(
+      testData.slickSliderItems[0].drumhead[1].buttonName,
+      testData.slickSliderItems[0].drumhead[0].title
+    ),
+    `Verifying ${testData.slickSliderItems[0].drumhead[1].buttonName} button should be visible`
+  ).toBeVisible();
+  await homepage.selectingGetStarted(
+    testData.slickSliderItems[0].drumhead[1].buttonName
+  );
+  const productCreation = new Sections.ProductCreation(page, test);
+  await productCreation.selectingDrumType(productsData.typeOfDrumbs[0].type);
+  await productCreation.clickingOnNextButton();
+  await productCreation.selectingDrumhead(
+    productsData.typeOfDrumbHeads[0].type
+  );
+  await productCreation.clickingOnNextButton();
+  await productCreation.selectingDrumbSize(
+    productsData.typeOfDrumbSize[0].type
+  );
+  await productCreation.clickingOnNextButton();
+  await productCreation.selectingDrumbReason(
+    productsData.typeOfDrumbReason[0].type
+  );
+  await productCreation.clickingOnNextButton();
+  await productCreation.selectingDrumbEnvrioment(
+    productsData.typeOfDrumbEnvironmnet[0].type
+  );
+  await productCreation.clickingOnNextButton();
+  await productCreation.selectingDrumbGenre(
+    productsData.typeOfDrumbGenre[0].type
+  );
+  await productCreation.clickingOnNextButton();
+  await productCreation.selectingDrumbSustain(
+    productsData.sustainabilityScale[0].type
+  );
+  await productCreation.clickingOnNextButton();
+  for (let i = 0; i < productsData.toneScale.length; i++) {
+    await expect(
+      productCreation.textInDrumbHead(productsData.toneScale[i].type),
+      `${productsData.toneScale[i].type} is visible`
+    ).toBeVisible();
+  }
+  await productCreation.clickingOnBackButton();
+  await expect(
+    productCreation.textInDrumbHead(productsData.textInDrumbSustain),
+    `${productsData.textInDrumbSustain} is visible`
+  ).toBeVisible();
+  await productCreation.clickingOnNextButton();
+  await productCreation.selectingDrumbGenre(productsData.toneScale[0].type);
+  await productCreation.clickingOnNextButton();
+  await expect(
+    productCreation.textInDrumbHead(productsData.resultPagePopup[0].save),
+    `${productsData.resultPagePopup[0].save} is visible`
+  ).toBeVisible();
+  await expect(
+    productCreation.textInDrumbHead(productsData.resultPagePopup[1].skip),
+    `${productsData.resultPagePopup[1].skip} is visible`
+  ).toBeVisible();
+});

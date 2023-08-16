@@ -139,5 +139,9 @@
       "type": "As much as possible"
     }
   ],
-  "textInDrumbTone": "What type of tone are you looking for?"
+  "textInDrumbTone": "What type of tone are you looking for?",
+  "resultPagePopup": [
+    {"save": "Save your results!"},
+    {"skip": "Skip to results"}
+  ]
 }
