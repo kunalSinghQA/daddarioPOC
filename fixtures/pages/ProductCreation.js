@@ -21,7 +21,7 @@ exports.ProductCreation = class ProductCreation {
     );
   };
 
-  clickingOnNextBuuton = async ()=>{
+  clickingOnNextButton = async ()=>{
     await executeStep(
       this.test,
       this.nextButton,
@@ -29,7 +29,7 @@ exports.ProductCreation = class ProductCreation {
       `clicking on next button`
     );
   }
-  clickingOnBackBuuton = async ()=>{
+  clickingOnBackButton = async ()=>{
     await executeStep(
       this.test,
       this.backButton,

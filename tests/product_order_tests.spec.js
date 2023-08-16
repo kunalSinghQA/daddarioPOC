@@ -89,4 +89,8 @@ test("Validate get selecting a drumhead option once selected navigate to new pag
       `${productsData.typeOfDrumbs[i].type} is visible`
     ).toBeVisible();
   }
+  await productCreation.selectingDrum(productsData.typeOfDrumbs[0].type);
+  await expect(productCreation,`${} is visible`).toBeVisible()
+  await productCreation.clickingOnNextButon();
+  await expect(productCreation,`${} is visible`).toBeVisible();
 });
