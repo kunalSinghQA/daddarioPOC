@@ -1,0 +1,23 @@
+{
+  "name": "daddariopoc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kunalSinghQA/daddarioPOC.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kunalSinghQA/daddarioPOC/issues"
+  },
+  "homepage": "https://github.com/kunalSinghQA/daddarioPOC#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.37.0",
+    "dotenv": "^16.3.1",
+    "faker": "^6.6.6"
+  }
+}
