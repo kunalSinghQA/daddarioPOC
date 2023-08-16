@@ -104,4 +104,15 @@ test("'TC-04' Verify that the selected drum 'Size' is highlighted and NEXT butto
     `Verifying ${testData.cokkies.accept} button should be visible`
   ).toBeVisible();
   await homepage.handleCokkies(testData.cokkies.accept);
-});
+  await homepage.selectingGetStarted(
+    testData.slickSliderItems[0].drumhead[1].buttonName,
+    testData.slickSliderItems[0].drumhead[0].title
+  );
+  const productCreation = new Sections.ProductCreation(page, test);
+    await productCreation.selectingDrum(productsData.typeOfDrumbs[0].type)
+    await productCreation.clickingOnNextBuuton()
+    
+
+})
+
+
