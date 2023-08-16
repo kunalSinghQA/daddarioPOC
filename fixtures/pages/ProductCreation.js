@@ -7,9 +7,15 @@ exports.ProductCreation = class ProductCreation {
     this.test = test;
     this.drumTypeOptions = (option) =>
       page.locator(`//div[contains(@data-name,"${option}")]`);
+    this.drumFindByText = (text) =>
+      page.locator(`//div[contains(text(),"${text}")]`);
     this.backButton = page.getByRole('button', { name: 'Back' });
     this.nextButton = page.getByRole('button', { name: 'Next' });
     this.textInDrumHead = (text) => page.getByText(text);
+    this.saveTheResult = (text) =>
+      page.locator(`//span[contains(text(),"${text}")]`);
+    this.skipTheResult = (text) =>
+      page.locator(`//div[contains(text(),"${text}")]`);
   }
 
   selectingDrumType = async (option) => {
