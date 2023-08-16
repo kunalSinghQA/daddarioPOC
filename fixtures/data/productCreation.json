@@ -1,5 +1,5 @@
 {
-  "typeOfDrumbs": [
+  "typeOfDrums": [
     {
       "type": "Drum Set"
     },
@@ -13,8 +13,8 @@
       "type": "Hand Percussion"
     }
   ],
-  "textInDrumbType": "What type of drums are you playing?",
-  "typeOfDrumbHeads": [
+  "textInDrumType": "What type of drums are you playing?",
+  "typeOfDrumHeads": [
     {
       "type": "Snare Drum"
     },
@@ -25,8 +25,8 @@
       "type": "Bass Drum"
     }
   ],
-  "textInDrumbHead": "Which drumhead are you looking for?",
-  "typeOfDrumbSize": [
+  "textInDrumHead": "Which drumhead are you looking for?",
+  "typeOfDrumSize": [
     {
       "type": "10"
     },
@@ -40,8 +40,8 @@
       "type": "14"
     }
   ],
-  "textInDrumbSize": "What size do you play?",
-  "typeOfDrumbReason": [
+  "textInDrumSize": "What size do you play?",
+  "typeOfDrumReason": [
     {
       "type": "Replacing a Broken Drumhead"
     },
@@ -58,8 +58,8 @@
       "type": "Switching to EVANS Brand"
     }
   ],
-  "textInDrumbReason": "Why are you changing your head?",
-  "typeOfDrumbEnvironmnet": [
+  "textInDrumReason": "Why are you changing your head?",
+  "typeOfDrumEnvironmnet": [
     {
       "type": "I DO NOT HAVE VOLUME CONSTRAINTS"
     },
@@ -67,8 +67,8 @@
       "type": "I DO HAVE VOLUME CONSTRAINTS"
     }
   ],
-  "textInDrumbEnvironment": "Will you be playing this head in an environment with volume constraints?",
-  "typeOfDrumbGenre": [
+  "textInDrumEnvironment": "Will you be playing this head in an environment with volume constraints?",
+  "typeOfDrumGenre": [
     {
       "type": "A Mix of Everything"
     },
@@ -100,7 +100,7 @@
       "type": "Other"
     }
   ],
-  "textInDrumbGenre": "What style of music do you primarily play?",
+  "textInDrumGenre": "What style of music do you primarily play?",
   "sustainabilityScale": [
     {
       "type": "As short as possible"
@@ -121,7 +121,7 @@
       "type": "As much as possible"
     }
   ],
-  "textInDrumbSustain": "How much sustain do you want?",
+  "textInDrumSustain": "How much sustain do you want?",
   "toneScale": [
     {
       "type": "As short as possible"
@@ -142,5 +142,5 @@
       "type": "As much as possible"
     }
   ],
-  "textInDrumbTone": "What type of tone are you looking for?"
+  "textInDrumTone": "What type of tone are you looking for?"
 }

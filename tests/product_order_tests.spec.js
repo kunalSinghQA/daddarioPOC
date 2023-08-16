@@ -74,25 +74,25 @@ test("'TC-03' Validate get selecting a drumhead option once selected navigate to
   );
   const productCreation = new Sections.ProductCreation(page, test);
   await expect(page).toHaveURL(/drumhead-finder/);
-  for (let i = 0; i < productsData.typeOfDrumbs.length; i++) {
+  for (let i = 0; i < productsData.typeOfDrums.length; i++) {
     await expect(
-      productCreation.drumTypeOptions(productsData.typeOfDrumbs[i].type),
-      `${productsData.typeOfDrumbs[i].type} is visible`
+      productCreation.drumTypeOptions(productsData.typeOfDrums[i].type),
+      `${productsData.typeOfDrums[i].type} is visible`
     ).toBeVisible();
   }
-  await productCreation.selectingDrum(productsData.typeOfDrumbs[0].type);
+  await productCreation.selectingDrum(productsData.typeOfDrums[0].type);
   await expect(
-    productCreation.textInDrumbHead(productsData.textInDrumbType),
-    `${productsData.textInDrumbType} is visible`
+    productCreation.textInDrumHead(productsData.textInDrumType),
+    `${productsData.textInDrumType} is visible`
   ).toBeVisible();
   await productCreation.clickingOnNextButton();
   await expect(
-    productCreation.textInDrumbHead(productsData.textInDrumbHead),
-    `${productsData.textInDrumbHead} is visible`
+    productCreation.textInDrumHead(productsData.textInDrumHead),
+    `${productsData.textInDrumHead} is visible`
   ).toBeVisible();
 });
 
-test.only("'TC-04' Verify that the selected drum 'Size' is highlighted and NEXT button is enabled", async ({
+test("'TC-06' Verify that the selected drum 'Size' is highlighted and NEXT button is enabled", async ({
   page,
 }) => {
   const homepage = new Sections.Homepage(page, test);
@@ -111,16 +111,62 @@ test.only("'TC-04' Verify that the selected drum 'Size' is highlighted and NEXT 
   );
   const productCreation = new Sections.ProductCreation(page, test);
   await expect(page).toHaveURL(/drumhead-finder/);
-  await productCreation.selectingDrum(productsData.typeOfDrumbs[0].type);
+  await productCreation.selectingDrumType(productsData.typeOfDrums[0].type);
   await productCreation.clickingOnNextButton();
-  await productCreation.selectingDrum(productsData.typeOfDrumbHeads[0].type);
+  await productCreation.selectingDrumhead(productsData.typeOfDrumHeads[0].type);
   await productCreation.clickingOnNextButton();
   await expect(
-    productCreation.textInDrumbTypes(productsData.textInDrumbSize),
-    `verifying text ${productsData.textInDrumbSize} is visible`
-  );
+    productCreation.textInDrumHead(productsData.textInDrumSize),
+    `verifying text ${productsData.textInDrumSize} is visible`
+  ).toBeVisible;
+  await productCreation.selectingDrumSize(productsData.typeOfDrumSize[0].type);
+  await productCreation.clickingOnNextButton();
+  await expect(
+    productCreation.textInDrumHead(productsData.textInDrumReason),
+    `verifying text ${productsData.textInDrumReason} is visible`
+  ).toBeVisible();
+  await productCreation.clickingOnBackButton();
+  await expect(
+    productCreation.textInDrumHead(productsData.textInDrumSize),
+    `verifying text ${productsData.textInDrumSize} is visible`
+  ).toBeVisible;
 });
-
+test.only("'TC-07' Verify that the selected drum 'Size' is highlighted and NEXT button is enabled", async ({
+  page,
+}) => {
+  const homepage = new Sections.Homepage(page, test);
+  // await homepage.navigateToHomepage(`${use.baseURL}/`);
+  await page.goto(`${use.baseURL}/`);
+  await homepage.handleCokkies(testData.cokkies.accept);
+  await expect(
+    homepage.selectGetStarted(
+      testData.slickSliderItems[0].drumhead[1].buttonName,
+      testData.slickSliderItems[0].drumhead[0].title
+    ),
+    `Verifying ${testData.slickSliderItems[0].drumhead[1].buttonName} button should be visible`
+  ).toBeVisible();
+  await homepage.selectingGetStarted(
+    testData.slickSliderItems[0].drumhead[1].buttonName
+  );
+  const productCreation = new Sections.ProductCreation(page, test);
+  await expect(page).toHaveURL(/drumhead-finder/);
+  await productCreation.selectingDrumType(productsData.typeOfDrums[0].type);
+  await productCreation.clickingOnNextButton();
+  await productCreation.selectingDrumhead(productsData.typeOfDrumHeads[0].type);
+  await productCreation.clickingOnNextButton();
+  await productCreation.selectingDrumSize(productsData.typeOfDrumSize[0].type);
+  await productCreation.clickingOnNextButton();
+  await expect(
+    productCreation.textInDrumHead(productsData.textInDrumReason),
+    `verifying text ${productsData.textInDrumReason} is visible`
+  ).toBeVisible();
+  await productCreation.selectingDrum(productsData.typeOfDrumSize[0].type);
+  await productCreation.clickingOnBackButton();
+  await expect(
+    productCreation.textInDrumHead(productsData.textInDrumSize),
+    `verifying text ${productsData.textInDrumSize} is visible`
+  ).toBeVisible;
+});
 test("'TC-07' Validate Enviroment values and forward /back button functionality", async ({
   page,
 }) => {
@@ -139,40 +185,36 @@ test("'TC-07' Validate Enviroment values and forward /back button functionality"
     testData.slickSliderItems[0].drumhead[1].buttonName
   );
   const productCreation = new Sections.ProductCreation(page, test);
-  await productCreation.selectingDrumType(productsData.typeOfDrumbs[0].type);
+  await productCreation.selectingDrumType(productsData.typeOfDrums[0].type);
   await productCreation.clickingOnNextButton();
-  await productCreation.selectingDrumhead(
-    productsData.typeOfDrumbHeads[0].type
+  await productCreation.selectingDrumhead(productsData.typeOfDrumHeads[0].type);
+  await productCreation.clickingOnNextButton();
+  await productCreation.selectingDrumSize(productsData.typeOfDrumSize[0].type);
+  await productCreation.clickingOnNextButton();
+  await productCreation.selectingDrumReason(
+    productsData.typeOfDrumReason[0].type
   );
   await productCreation.clickingOnNextButton();
-  await productCreation.selectingDrumbSize(
-    productsData.typeOfDrumbSize[0].type
-  );
-  await productCreation.clickingOnNextButton();
-  await productCreation.selectingDrumbReason(
-    productsData.typeOfDrumbReason[0].type
-  );
-  await productCreation.clickingOnNextButton();
-  for (let i = 0; i < productsData.typeOfDrumbEnvironmnet.length; i++) {
+  for (let i = 0; i < productsData.typeOfDrumEnvironmnet.length; i++) {
     await expect(
-      productCreation.textInDrumbHead(
-        productsData.typeOfDrumbEnvironmnet[i].type
+      productCreation.textInDrumHead(
+        productsData.typeOfDrumEnvironmnet[i].type
       ),
-      `${productsData.typeOfDrumbEnvironmnet[i].type} is visible`
+      `${productsData.typeOfDrumEnvironmnet[i].type} is visible`
     ).toBeVisible();
   }
   await productCreation.clickingOnBackButton();
   await expect(
-    productCreation.textInDrumbHead(productsData.textInDrumbReason),
-    `${productsData.textInDrumbReason} is visible`
+    productCreation.textInDrumHead(productsData.textInDrumReason),
+    `${productsData.textInDrumReason} is visible`
   ).toBeVisible();
   await productCreation.clickingOnNextButton();
-  await productCreation.selectingDrumbEnvrioment(
-    productsData.typeOfDrumbEnvironmnet[0].type
+  await productCreation.selectingDrumEnvrioment(
+    productsData.typeOfDrumEnvironmnet[0].type
   );
   await productCreation.clickingOnNextButton();
   await expect(
-    productCreation.textInDrumbHead(productsData.textInDrumbGenre),
-    `${productsData.textInDrumbGenre} is visible`
+    productCreation.textInDrumHead(productsData.textInDrumGenre),
+    `${productsData.textInDrumGenre} is visible`
   ).toBeVisible();
 });

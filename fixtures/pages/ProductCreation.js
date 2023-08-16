@@ -1,22 +1,22 @@
-const { executeStep } = require("../../utilities/actions");
+const { executeStep } = require('../../utilities/actions');
 
-require("dotenv").config();
+require('dotenv').config();
 exports.ProductCreation = class ProductCreation {
   constructor(page, test) {
     this.page = page;
     this.test = test;
     this.drumTypeOptions = (option) =>
       page.locator(`//div[contains(@data-name,"${option}")]`);
-    this.backButton = page.getByRole("button", { name: "Back" });
-    this.nextButton = page.getByRole("button", { name: "Next" });
-    this.textInDrumbHead = (text) => page.getByText(text);
+    this.backButton = page.getByRole('button', { name: 'Back' });
+    this.nextButton = page.getByRole('button', { name: 'Next' });
+    this.textInDrumHead = (text) => page.getByText(text);
   }
 
   selectingDrumType = async (option) => {
     await executeStep(
       this.test,
       this.drumTypeOptions(option),
-      "click",
+      'click',
       `Selecting ${option} from available options`
     );
   };
@@ -25,61 +25,61 @@ exports.ProductCreation = class ProductCreation {
     await executeStep(
       this.test,
       this.drumTypeOptions(option),
-      "click",
+      'click',
       `Selecting ${option} from available options`
     );
   };
 
-  selectingDrumbSize = async (option) => {
+  selectingDrumSize = async (option) => {
     await executeStep(
       this.test,
       this.drumTypeOptions(option),
-      "click",
+      'click',
       `Selecting ${option} from available options`
     );
   };
 
-  selectingDrumbReason = async (option) => {
+  selectingDrumReason = async (option) => {
     await executeStep(
       this.test,
       this.drumTypeOptions(option),
-      "click",
+      'click',
       `Selecting ${option} from available options`
     );
   };
 
-  selectingDrumbEnvrioment = async (option) => {
+  selectingDrumEnvrioment = async (option) => {
     await executeStep(
       this.test,
       this.drumTypeOptions(option),
-      "click",
+      'click',
       `Selecting ${option} from available options`
     );
   };
 
-  selectingDrumbGenre = async (option) => {
+  selectingDrumGenre = async (option) => {
     await executeStep(
       this.test,
       this.drumTypeOptions(option),
-      "click",
+      'click',
       `Selecting ${option} from available options`
     );
   };
 
-  selectingDrumbSustain = async (option) => {
+  selectingDrumSustain = async (option) => {
     await executeStep(
       this.test,
       this.drumTypeOptions(option),
-      "click",
+      'click',
       `Selecting ${option} from available options`
     );
   };
 
-  selectingDrumbTone = async (option) => {
+  selectingDrumTone = async (option) => {
     await executeStep(
       this.test,
       this.drumTypeOptions(option),
-      "click",
+      'click',
       `Selecting ${option} from available options`
     );
   };
@@ -88,7 +88,7 @@ exports.ProductCreation = class ProductCreation {
     await executeStep(
       this.test,
       this.nextButton,
-      "click",
+      'click',
       `clicking on next button`
     );
   };
@@ -97,7 +97,7 @@ exports.ProductCreation = class ProductCreation {
     await executeStep(
       this.test,
       this.backButton,
-      "click",
+      'click',
       `clicking on back button`
     );
   };
