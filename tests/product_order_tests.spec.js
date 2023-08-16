@@ -160,14 +160,25 @@ test.only("'TC-07' Verify that the selected drum 'Size' is highlighted and NEXT 
     productCreation.textInDrumHead(productsData.textInDrumReason),
     `verifying text ${productsData.textInDrumReason} is visible`
   ).toBeVisible();
-  await productCreation.selectingDrum(productsData.typeOfDrumSize[0].type);
+  await expect(
+    productCreation.textInDrumHead(productsData.typeOfDrumReason[0].type),
+    `verifying text ${productsData.textInDrumReason} is visible`
+  ).toBeVisible();
+  await productCreation.selectingDrumReason(
+    productsData.typeOfDrumReason[0].type
+  );
+  await productCreation.clickingOnNextButton();
+  await expect(
+    productCreation.textInDrumHead(productsData.textInDrumEnvironment),
+    `verifying text ${productsData.textInDrumEnvironment} is visible`
+  ).toBeVisible();
   await productCreation.clickingOnBackButton();
   await expect(
-    productCreation.textInDrumHead(productsData.textInDrumSize),
-    `verifying text ${productsData.textInDrumSize} is visible`
+    productCreation.textInDrumHead(productsData.textInDrumReason),
+    `verifying text ${productsData.textInDrumReason} is visible`
   ).toBeVisible;
 });
-test("'TC-07' Validate Enviroment values and forward /back button functionality", async ({
+test("'TC-08' Validate Enviroment values and forward /back button functionality", async ({
   page,
 }) => {
   const homepage = new Sections.Homepage(page, test);
