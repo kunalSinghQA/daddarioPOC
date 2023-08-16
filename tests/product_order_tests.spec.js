@@ -55,7 +55,7 @@ test("'TC-02' Validate get started button is visible and navigation is correct",
   await expect(page).toHaveURL(/drumhead-finder/);
 });
 
-test.only("'TC-03' Validate get selecting a drumhead option once selected navigate to new page", async ({
+test("'TC-03' Validate get selecting a drumhead option once selected navigate to new page", async ({
   page,
 }) => {
   const homepage = new Sections.Homepage(page, test);
@@ -74,8 +74,7 @@ test.only("'TC-03' Validate get selecting a drumhead option once selected naviga
   );
   const productCreation = new Sections.ProductCreation(page, test);
   await expect(page).toHaveURL(/drumhead-finder/);
-  for (let i = 0; i <= productsData.typeOfDrumbs.length; i++) {
-    console.log(productsData.typeOfDrumbs[i].type);
+  for (let i = 0; i < productsData.typeOfDrumbs.length; i++) {
     await expect(
       productCreation.drumheadOptions(productsData.typeOfDrumbs[i].type),
       `${productsData.typeOfDrumbs[i].type} is visible`
@@ -86,7 +85,7 @@ test.only("'TC-03' Validate get selecting a drumhead option once selected naviga
     productCreation.textInDrumbTypes(productsData.textInDrumbType),
     `${productsData.textInDrumbType} is visible`
   ).toBeVisible();
-  await productCreation.clickingOnNextButon();
+  await productCreation.clickingOnNextButton();
   await expect(
     productCreation.textInDrumbHeads(productsData.textInDrumbHead),
     `${productsData.textInDrumbHead} is visible`
@@ -109,10 +108,28 @@ test("'TC-04' Verify that the selected drum 'Size' is highlighted and NEXT butto
     testData.slickSliderItems[0].drumhead[0].title
   );
   const productCreation = new Sections.ProductCreation(page, test);
-    await productCreation.selectingDrum(productsData.typeOfDrumbs[0].type)
-    await productCreation.clickingOnNextBuuton()
-    
+  await productCreation.selectingDrum(productsData.typeOfDrumbs[0].type);
+  await productCreation.clickingOnNextBuuton();
+});
 
-})
-
-
+test("'TC-07' Validate Enviroment values and forward /back button functionality", async ({
+  page,
+}) => {
+  const homepage = new Sections.Homepage(page, test);
+  // await homepage.navigateToHomepage(`${use.baseURL}/`);
+  await page.goto(`${use.baseURL}/`);
+  await homepage.handleCokkies(testData.cokkies.accept);
+  await expect(
+    homepage.selectGetStarted(
+      testData.slickSliderItems[0].drumhead[1].buttonName,
+      testData.slickSliderItems[0].drumhead[0].title
+    ),
+    `Verifying ${testData.slickSliderItems[0].drumhead[1].buttonName} button should be visible`
+  ).toBeVisible();
+  await homepage.selectingGetStarted(
+    testData.slickSliderItems[0].drumhead[1].buttonName
+  );
+  const productCreation = new Sections.ProductCreation(page, test);
+  await productCreation.selectingDrum(productsData.typeOfDrumbs[0].type);
+  await productCreation.clickingOnNextButton();
+});
