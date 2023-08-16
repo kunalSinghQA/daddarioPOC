@@ -1,0 +1,12 @@
+{
+  "navItems": [
+    { "navElement": "Type" },
+    { "navElement": "Drum" },
+    { "navElement": "Size" },
+    { "navElement": "REASON" },
+    { "navElement": "Environment" },
+    { "navElement": "Genre" },
+    { "navElement": "Sustain" },
+    { "navElement": "Tone" }
+  ]
+}

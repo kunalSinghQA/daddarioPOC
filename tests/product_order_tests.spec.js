@@ -252,13 +252,9 @@ test("'TC-07' Validate Genre values and forward /back button functionality", asy
   const productCreation = new Sections.ProductCreation(page, test);
   await productCreation.selectingDrumType(productsData.typeOfDrums[0].type);
   await productCreation.clickingOnNextButton();
-  await productCreation.selectingDrumhead(
-    productsData.typeOfDrumHeads[0].type
-  );
+  await productCreation.selectingDrumhead(productsData.typeOfDrumHeads[0].type);
   await productCreation.clickingOnNextButton();
-  await productCreation.selectingDrumSize(
-    productsData.typeOfDrumSize[0].type
-  );
+  await productCreation.selectingDrumSize(productsData.typeOfDrumSize[0].type);
   await productCreation.clickingOnNextButton();
   await productCreation.selectingDrumReason(
     productsData.typeOfDrumReason[0].type
@@ -290,7 +286,7 @@ test("'TC-07' Validate Genre values and forward /back button functionality", asy
   ).toBeVisible();
 });
 
-test.only("'TC-08' Validate Tone values and forward /back button functionality", async ({
+test("'TC-08' Validate Tone values and forward /back button functionality", async ({
   page,
 }) => {
   const homepage = new Sections.Homepage(page, test);
@@ -310,13 +306,9 @@ test.only("'TC-08' Validate Tone values and forward /back button functionality",
   const productCreation = new Sections.ProductCreation(page, test);
   await productCreation.selectingDrumType(productsData.typeOfDrums[0].type);
   await productCreation.clickingOnNextButton();
-  await productCreation.selectingDrumhead(
-    productsData.typeOfDrumHeads[0].type
-  );
+  await productCreation.selectingDrumhead(productsData.typeOfDrumHeads[0].type);
   await productCreation.clickingOnNextButton();
-  await productCreation.selectingDrumSize(
-    productsData.typeOfDrumSize[0].type
-  );
+  await productCreation.selectingDrumSize(productsData.typeOfDrumSize[0].type);
   await productCreation.clickingOnNextButton();
   await productCreation.selectingDrumReason(
     productsData.typeOfDrumReason[0].type
@@ -356,4 +348,86 @@ test.only("'TC-08' Validate Tone values and forward /back button functionality",
     productCreation.textInDrumHead(productsData.resultPagePopup[1].skip),
     `${productsData.resultPagePopup[1].skip} is visible`
   ).toBeVisible();
+});
+
+test.only("'TC-09' Validate result page nav items", async ({ page }) => {
+  const homepage = new Sections.Homepage(page, test);
+  // await homepage.navigateToHomepage(`${use.baseURL}/`);
+  await page.goto(`${use.baseURL}/`);
+  await homepage.handleCokkies(testData.cokkies.accept);
+  await expect(
+    homepage.selectGetStarted(
+      testData.slickSliderItems[0].drumhead[1].buttonName,
+      testData.slickSliderItems[0].drumhead[0].title
+    ),
+    `Verifying ${testData.slickSliderItems[0].drumhead[1].buttonName} button should be visible`
+  ).toBeVisible();
+  await homepage.selectingGetStarted(
+    testData.slickSliderItems[0].drumhead[1].buttonName
+  );
+  const productCreation = new Sections.ProductCreation(page, test);
+  await productCreation.selectingDrumType(productsData.typeOfDrums[0].type);
+  await productCreation.clickingOnNextButton();
+  await productCreation.selectingDrumhead(productsData.typeOfDrumHeads[0].type);
+  await productCreation.clickingOnNextButton();
+  await productCreation.selectingDrumSize(productsData.typeOfDrumSize[0].type);
+  await productCreation.clickingOnNextButton();
+  await productCreation.selectingDrumReason(
+    productsData.typeOfDrumReason[0].type
+  );
+  await productCreation.clickingOnNextButton();
+  await productCreation.selectingDrumEnvrioment(
+    productsData.typeOfDrumEnvironmnet[0].type
+  );
+  await productCreation.clickingOnNextButton();
+  await productCreation.selectingDrumGenre(
+    productsData.typeOfDrumGenre[0].type
+  );
+  await productCreation.clickingOnNextButton();
+  await productCreation.selectingDrumSustain(
+    productsData.sustainabilityScale[0].type
+  );
+  await productCreation.clickingOnNextButton();
+  for (let i = 0; i < productsData.toneScale.length; i++) {
+    await expect(
+      productCreation.textInDrumHead(productsData.toneScale[i].type),
+      `${productsData.toneScale[i].type} is visible`
+    ).toBeVisible();
+  }
+  await productCreation.clickingOnBackButton();
+  await expect(
+    productCreation.textInDrumHead(productsData.textInDrumSustain),
+    `${productsData.textInDrumSustain} is visible`
+  ).toBeVisible();
+  await productCreation.clickingOnNextButton();
+  await productCreation.selectingDrumTone(productsData.toneScale[0].type);
+  await productCreation.clickingOnNextButton();
+  await expect(
+    productCreation.textInDrumHead(productsData.resultPagePopup[0].save),
+    `${productsData.resultPagePopup[0].save} is visible`
+  ).toBeVisible();
+  await expect(
+    productCreation.textInDrumHead(productsData.resultPagePopup[1].skip),
+    `${productsData.resultPagePopup[1].skip} is visible`
+  ).toBeVisible();
+  await productCreation.selectingSkipResult(
+    productsData.resultPagePopup[1].skip
+  );
+  const resultPage = new Sections.ResultsPage(page, test);
+  const resultPageData = Sections.resultPageData;
+  for (let i = 0; i < productsData.toneScale.length; i++) {
+    await expect(
+      resultPage.navItems(resultPageData.navItems[i].navElement),
+      `${resultPageData.navItems[i].navElement} is visible`
+    ).toBeVisible();
+  }
+  await resultPage.selectingANavItem(resultPageData.navItems[0].navElement);
+  await productCreation.clickingOnNextButton();
+  for (let i = 1; i < productsData.toneScale.length; i++) {
+    await expect(
+      resultPage.activeNavItems(resultPageData.navItems[i].navElement),
+      `${resultPageData.navItems[i].navElement} is visible`
+    ).toBeVisible();
+    await productCreation.clickingOnNextButton();
+  }
 });

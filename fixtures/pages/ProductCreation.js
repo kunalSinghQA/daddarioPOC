@@ -92,6 +92,15 @@ exports.ProductCreation = class ProductCreation {
     );
   };
 
+  selectingSkipResult = async (option) => {
+    await executeStep(
+      this.test,
+      this.skipTheResult(option),
+      'click',
+      `Selecting ${option} from available options`
+    );
+  };
+
   clickingOnNextButton = async () => {
     await executeStep(
       this.test,
