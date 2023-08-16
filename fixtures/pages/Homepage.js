@@ -9,12 +9,20 @@ exports.Homepage = class Homepage {
       page.locator(
         `//div[contains(@class,"banner-actions-container")]/button[contains(text(),"${option}")]`
       );
+    this.navItems = (navItem) =>
+      page.locator(
+        `//nav[contains(@data-view,"MenuDesktop")]//li[contains(@class,"top-level-item")]/div[contains(text(),"${navItem}")]`
+      );
+    this.selectingGetStarted = (buttonName, title) =>
+      page.locator(
+        `//div[contains(@class,"slick-active")]//a[contains(text(),"${buttonName}")][contains(@title,"${title}")]`
+      );
   }
 
   navigateToHomepage = async (URL) => {
     await executeStep(
       this.test,
-      this.page,
+      await this.page,
       "navigate",
       `Navigate to ${URL}`,
       URL
@@ -27,6 +35,24 @@ exports.Homepage = class Homepage {
       this.acceptOrDeclineCokkies(option),
       "click",
       `${option} the cokkies`
+    );
+  };
+
+  selectingANavElement = async (navItem) => {
+    await executeStep(
+      this.test,
+      this.navItems(navItem),
+      "click",
+      `Selecting ${navItem} from top menu`
+    );
+  };
+
+  selectingGetStarted = async (button, title) => {
+    await executeStep(
+      this.test,
+      this.navItems(button, title),
+      "click",
+      `Selecting ${button} from top menu`
     );
   };
 };

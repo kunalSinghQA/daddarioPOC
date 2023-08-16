@@ -1,6 +1,34 @@
 {
-    "cokkies": {
-        "accept" : "Accept Cookies",
-        "decline" : "Reject All"
+  "cokkies": {
+    "accept": "Accept Cookies",
+    "decline": "Reject All"
+  },
+  "headerElement": [
+    { "guitar": "GUITAR+" },
+    { "percussion": "PERCUSSION" },
+    { "orchestral": "ORCHESTRAL" },
+    { "woowinds": "WOODWINDS" },
+    { "accessories": "ACCESSORIES" },
+    { "explore": "EXPLORE" },
+    { "rewards": "REWARDS" },
+    { "quiz": "FIND YOUR GEAR QUIZ" }
+  ],
+  "slickSliderItems": [
+    {
+      "drumhead": [
+        { "title": "Drumhead finder tool" },
+        { "buttonName": "Get Started" }
+      ],
+      "setFinder": [
+        {
+          "title": "Find your perfect saxophone or clarinet reed with Reed Finder"
+        },
+        { "buttonName": "Find your set" }
+      ],
+      "saxophone": [
+        { "title": "Find your perfect string set" },
+        { "buttonName": "Get Started" }
+      ]
     }
+  ]
 }
