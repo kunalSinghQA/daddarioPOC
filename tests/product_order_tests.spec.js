@@ -55,7 +55,7 @@ test("'TC-02' Validate get started button is visible and navigation is correct",
   await expect(page).toHaveURL(/drumhead-finder/);
 });
 
-test("'TC-03' Validate get selecting a drumhead option once selected navigate to new page", async ({
+test.only("'TC-03' Validate get selecting a drumhead option once selected navigate to new page", async ({
   page,
 }) => {
   const homepage = new Sections.Homepage(page, test);
@@ -86,9 +86,15 @@ test("'TC-03' Validate get selecting a drumhead option once selected navigate to
     ).toBeVisible();
   }
   await productCreation.selectingDrum(productsData.typeOfDrumbs[0].type);
-  await expect(productCreation,`${} is visible`).toBeVisible()
+  await expect(
+    productCreation.textInDrumbTypes(productsData.textInDrumbType),
+    `${productsData.textInDrumbType} is visible`
+  ).toBeVisible();
   await productCreation.clickingOnNextButon();
-  await expect(productCreation,`${} is visible`).toBeVisible();
+  await expect(
+    productCreation.textInDrumbHeads(productsData.textInDrumbHead),
+    `${productsData.textInDrumbHead} is visible`
+  ).toBeVisible();
 });
 
 test("'TC-04' Verify that the selected drum 'Size' is highlighted and NEXT button is enabled", async ({
@@ -102,7 +108,4 @@ test("'TC-04' Verify that the selected drum 'Size' is highlighted and NEXT butto
     `Verifying ${testData.cokkies.accept} button should be visible`
   ).toBeVisible();
   await homepage.handleCokkies(testData.cokkies.accept);
-
-})
-
-
+});

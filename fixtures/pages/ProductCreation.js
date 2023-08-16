@@ -7,9 +7,10 @@ exports.ProductCreation = class ProductCreation {
     this.test = test;
     this.drumheadOptions = (option) =>
       page.locator(`//div[contains(@data-name,${option})]`);
-    this.backButton = page.getByRole('button', { name: 'Back' })
-    this.nextButton = page.getByRole('button', { name: 'Next' })
-
+    this.backButton = page.getByRole("button", { name: "Back" });
+    this.nextButton = page.getByRole("button", { name: "Next" });
+    this.textInDrumbTypes = (text) => page.getByText(text);
+    this.textInDrumbHeads = (text) => page.getByText(text);
   }
 
   selectingDrum = async (option) => {
@@ -21,22 +22,20 @@ exports.ProductCreation = class ProductCreation {
     );
   };
 
-  clickingOnNextButton = async ()=>{
+  clickingOnNextButton = async () => {
     await executeStep(
       this.test,
       this.nextButton,
-      'click',
+      "click",
       `clicking on next button`
     );
-  }
-  clickingOnBackButton = async ()=>{
+  };
+  clickingOnBackButton = async () => {
     await executeStep(
       this.test,
       this.backButton,
-      'click',
+      "click",
       `clicking on back button`
     );
-  }
-
-  
+  };
 };
