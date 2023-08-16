@@ -9,9 +9,7 @@ exports.ProductCreation = class ProductCreation {
       page.locator(`//div[contains(@data-name,"${option}")]`);
     this.backButton = page.getByRole("button", { name: "Back" });
     this.nextButton = page.getByRole("button", { name: "Next" });
-    this.textInDrumbTypes = (text) => page.getByText(text);
-    this.textInDrumbHeads = (text) => page.getByText(text);
-    this.reasonText = (text) => page.getByText(text);
+    this.textInDrumbHead = (text) => page.getByText(text);
   }
 
   selectingDrumType = async (option) => {

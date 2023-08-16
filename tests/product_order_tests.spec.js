@@ -82,12 +82,12 @@ test("'TC-03' Validate get selecting a drumhead option once selected navigate to
   }
   await productCreation.selectingDrum(productsData.typeOfDrumbs[0].type);
   await expect(
-    productCreation.textInDrumbTypes(productsData.textInDrumbType),
+    productCreation.textInDrumbHead(productsData.textInDrumbType),
     `${productsData.textInDrumbType} is visible`
   ).toBeVisible();
   await productCreation.clickingOnNextButton();
   await expect(
-    productCreation.textInDrumbHeads(productsData.textInDrumbHead),
+    productCreation.textInDrumbHead(productsData.textInDrumbHead),
     `${productsData.textInDrumbHead} is visible`
   ).toBeVisible();
 });
@@ -144,7 +144,7 @@ test("'TC-07' Validate Enviroment values and forward /back button functionality"
   await productCreation.clickingOnNextButton();
   for (let i = 0; i < productsData.typeOfDrumbEnvironmnet.length; i++) {
     await expect(
-      productCreation.drumTypeOptions(
+      productCreation.textInDrumbHead(
         productsData.typeOfDrumbEnvironmnet[i].type
       ),
       `${productsData.typeOfDrumbEnvironmnet[i].type} is visible`
@@ -152,7 +152,7 @@ test("'TC-07' Validate Enviroment values and forward /back button functionality"
   }
   await productCreation.clickingOnBackButton();
   await expect(
-    productCreation.reasonText(productsData.textInDrumbReason),
+    productCreation.textInDrumbHead(productsData.textInDrumbReason),
     `${productsData.textInDrumbReason} is visible`
   ).toBeVisible();
   await productCreation.clickingOnNextButton();
@@ -161,7 +161,7 @@ test("'TC-07' Validate Enviroment values and forward /back button functionality"
   );
   await productCreation.clickingOnNextButton();
   await expect(
-    productCreation.reasonText(productsData.textInDrumbGenre),
+    productCreation.textInDrumbHead(productsData.textInDrumbGenre),
     `${productsData.textInDrumbGenre} is visible`
   ).toBeVisible();
 });
