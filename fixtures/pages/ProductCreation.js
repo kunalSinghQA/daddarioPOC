@@ -7,6 +7,9 @@ exports.ProductCreation = class ProductCreation {
     this.test = test;
     this.drumheadOptions = (option) =>
       page.locator(`//div[contains(@data-name,${option})]`);
+    this.backButton = page.getByRole('button', { name: 'Back' })
+    this.nextButton = page.getByRole('button', { name: 'Next' })
+
   }
 
   selectingDrum = async (option) => {
@@ -17,4 +20,23 @@ exports.ProductCreation = class ProductCreation {
       `Selecting ${option} from available options`
     );
   };
+
+  clickingOnNextBuuton = async ()=>{
+    await executeStep(
+      this.test,
+      this.nextButton,
+      'click',
+      `clicking on next button`
+    );
+  }
+  clickingOnBackBuuton = async ()=>{
+    await executeStep(
+      this.test,
+      this.backButton,
+      'click',
+      `clicking on back button`
+    );
+  }
+
+  
 };
