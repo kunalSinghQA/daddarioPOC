@@ -13,9 +13,9 @@ exports.Homepage = class Homepage {
       page.locator(
         `//nav[contains(@data-view,"MenuDesktop")]//li[contains(@class,"top-level-item")]/div[contains(text(),"${navItem}")]`
       );
-    this.selectingGetStarted = (buttonName, title) =>
+    this.selectGetStarted = (buttonName, title) =>
       page.locator(
-        `//div[contains(@class,"slick-active")]//a[contains(text(),"${buttonName}")][contains(@title,"${title}")]`
+        `//a[contains(text(),"${buttonName}")][contains(@title,"${title}")]/ancestor::div[contains(@class,"slick-active")]`
       );
   }
 
@@ -50,7 +50,7 @@ exports.Homepage = class Homepage {
   selectingGetStarted = async (button, title) => {
     await executeStep(
       this.test,
-      this.navItems(button, title),
+      this.selectGetStarted(button, title),
       "click",
       `Selecting ${button} from top menu`
     );

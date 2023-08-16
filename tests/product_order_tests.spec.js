@@ -41,14 +41,15 @@ test.only("Validate get started button is visible and navigation is correct", as
   ).toBeVisible();
   await homepage.handleCokkies(testData.cokkies.accept);
   await expect(
-    homepage.selectingGetStarted(
-      testData.slickSliderItems[0].drumhead[0].buttonName,
+    homepage.selectGetStarted(
+      testData.slickSliderItems[0].drumhead[1].buttonName,
       testData.slickSliderItems[0].drumhead[0].title
     ),
-    `Verifying ${testData.slickSliderItems[0].drumhead[0].buttonName} button should be visible`
+    `Verifying ${testData.slickSliderItems[0].drumhead[1].buttonName} button should be visible`
   ).toBeVisible();
-  await page.selectingGetStarted(
-    testData.slickSliderItems[0].drumhead[0].buttonName,
+  await homepage.selectingGetStarted(
+    testData.slickSliderItems[0].drumhead[1].buttonName,
     testData.slickSliderItems[0].drumhead[0].title
   );
+  
 });
