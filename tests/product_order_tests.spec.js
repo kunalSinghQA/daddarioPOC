@@ -449,7 +449,7 @@ test('TC-09, Validate result page nav items', async ({ page }) => {
   }
 });
 
-test('TC-10, Validate view products functionality and cheeckout page functionality', async ({
+test('TC-10, Validate view products functionality and checkout page functionality', async ({
   browser,
 }) => {
   browser = await chromium.launch();
