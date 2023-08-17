@@ -11,11 +11,15 @@ exports.ProductCreation = class ProductCreation {
       page.locator(`//div[contains(text(),"${text}")]`);
     this.backButton = page.getByRole('button', { name: 'Back' });
     this.nextButton = page.getByRole('button', { name: 'Next' });
-    this.textInDrumHead = (text) => page.getByText(text);
+    this.textInDrumHead = (text) => page.getByText(text).first();
     this.saveTheResult = (text) =>
       page.locator(`//span[contains(text(),"${text}")]`);
     this.skipTheResult = (text) =>
       page.locator(`//div[contains(text(),"${text}")]`);
+    this.viewProductsButton = (text) =>
+      page.locator(
+        `//div[contains(@class,"result-items")]//div[contains(@class,"learn_more_button")][contains(text(),"${text}")]`
+      );
   }
 
   selectingDrumType = async (option) => {
@@ -75,18 +79,37 @@ exports.ProductCreation = class ProductCreation {
   selectingDrumSustain = async (option) => {
     await executeStep(
       this.test,
-      this.drumTypeOptions(option),
+      this.textInDrumHead(option),
       'click',
       `Selecting ${option} from available options`
     );
+    await this.page.waitForTimeout(1000);
   };
 
   selectingDrumTone = async (option) => {
     await executeStep(
       this.test,
-      this.drumTypeOptions(option),
+      this.textInDrumHead(option),
       'click',
       `Selecting ${option} from available options`
+    );
+  };
+
+  selectingSkipResult = async (option) => {
+    await executeStep(
+      this.test,
+      this.skipTheResult(option),
+      'click',
+      `Selecting ${option} from available options`
+    );
+  };
+
+  selectingViewProduct = async (option) => {
+    await executeStep(
+      this.test,
+      this.viewProductsButton(option),
+      'click',
+      `Selecting ${option}`
     );
   };
 
