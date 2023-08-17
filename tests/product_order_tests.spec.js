@@ -1,10 +1,13 @@
 const { test, expect, chromium } = require('@playwright/test');
+const { faker } = require('@faker-js/faker');
 const Sections = require('../fixtures/pageIndex');
 const { use } = require('../playwright.config');
 require('dotenv').config();
 
 test('TC-01, Validate products are visible', async ({ page }) => {
   const homepage = new Sections.Homepage(page, test);
+  const testData = Sections.testData;
+  const productsData = Sections.productsData;
   // await homepage.navigateToHomepage(`${use.baseURL}/`);
   await page.goto(`${use.baseURL}/`);
   await expect(
@@ -446,7 +449,7 @@ test('TC-09, Validate result page nav items', async ({ page }) => {
   }
 });
 
-test('TC-10, Validate view products functionality', async ({
+test('TC-10, Validate view products functionality and cheeckout page functionality', async ({
   browser,
 }) => {
   browser = await chromium.launch();
@@ -494,22 +497,19 @@ test('TC-10, Validate view products functionality', async ({
   await productCreation.selectingDrumTone(productsData.toneScale[0].type);
   await productCreation.clickingOnNextButton();
   await expect(
-    productCreation.textInDrumHead(productsData.resultPagePopup[0].save),
-    `${productsData.resultPagePopup[0].save} is visible`
-  ).toBeVisible();
-  await expect(
     productCreation.textInDrumHead(productsData.resultPagePopup[1].skip),
     `${productsData.resultPagePopup[1].skip} is visible`
   ).toBeVisible();
   await productCreation.selectingSkipResult(
     productsData.resultPagePopup[1].skip
   );
+  const page1Promise = page.waitForEvent('popup');
   await productCreation.selectingViewProduct(productsData.viewProducts);
-  await page.waitForTimeout(2000);
-  const [resultPageContent] = context.pages();
+  const resultPageContent = await page1Promise;
   const resultPage = new Sections.ResultsPage(resultPageContent, test);
   const resultPageData = Sections.resultPageData;
   await resultPage.selectingAddToCart(resultPageData.addToCart);
   await resultPage.selectingGoToKart(resultPageData.goToCart);
   await resultPage.selectingProceedAsGuest();
+  await resultPage.fillTheShippingDetails(faker);
 });

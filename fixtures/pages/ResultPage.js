@@ -44,16 +44,60 @@ exports.ResultsPage = class ResultsPage {
 
   selectingAddToCart = async (option) => {
     await executeStep(
-        this.test,
-        this.page.locator('//div[contains(@data-variant-type,"ProductSize")]').nth(1),
-        'click',
-    )
+      this.test,
+      this.page
+        .locator('//div[contains(@data-variant-type,"ProductSize")]')
+        .nth(1),
+      'click'
+    );
     await executeStep(
       this.test,
       this.addToCart(option),
       'click',
       `Selecting ${option}`
     );
+  };
+
+  fillTheShippingDetails = async (faker) => {
+    await this.page.locator('#shipping-F_Orange').click();
+    await this.page
+      .locator('#shipping-F_Orange')
+      .fill(faker.person.firstName());
+    await this.page.locator('#shipping-L_Red').click();
+    await this.page.locator('#shipping-L_Red').fill(faker.person.lastName());
+    await this.page.locator('#shipping-address1').click();
+    await this.page
+      .locator('#shipping-address1')
+      .fill(faker.location.streetAddress());
+    await this.page.locator('#shipping-city-name').click();
+    await this.page.locator('#shipping-city-name').fill(faker.location.city());
+    await this.page.locator('#shipping-state-container > .select2').click();
+    await this.page.getByRole('searchbox').fill('New York');
+    await this.page.getByRole('option', { name: 'New York' }).click();
+    await this.page.locator('#shipping-postal-code').click();
+    await this.page.locator('#shipping-postal-code').fill('10001');
+    await this.page.locator('#CE_Purple').click();
+    await this.page
+      .locator('#CE_Purple')
+      .fill(`${faker.person.firstName()}@test.com`);
+    await this.page.locator('#phoneNumber').click();
+    await this.page
+      .locator('#phoneNumber')
+      .fill(faker.phone.number());
+    await this.page.locator('#credit-card-name').click();
+    await this.page.locator('#credit-card-name').fill(faker.person.firstName());
+    await this.page.locator('#credit-card-number').click();
+    await this.page
+      .locator('#credit-card-number')
+      .fill(faker.finance.creditCardNumber());
+    await this.page.locator('#credit-card-cvv').click();
+    await this.page
+      .locator('#credit-card-cvv')
+      .fill(faker.finance.creditCardCVV());
+    await this.page.locator('#credit-card-expiration-date').click();
+    await this.page
+      .locator('#credit-card-expiration-date')
+      .fill('06/30');
   };
 
   selectingProceedAsGuest = async (option) => {
