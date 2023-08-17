@@ -1,14 +1,31 @@
 {
   "navItems": [
-    { "navElement": "Type" },
-    { "navElement": "Drum" },
-    { "navElement": "Size" },
-    { "navElement": "REASON" },
-    { "navElement": "Environment" },
-    { "navElement": "Genre" },
-    { "navElement": "Sustain" },
-    { "navElement": "Tone" }
+    {
+      "navElement": "Type"
+    },
+    {
+      "navElement": "Drum"
+    },
+    {
+      "navElement": "Size"
+    },
+    {
+      "navElement": "REASON"
+    },
+    {
+      "navElement": "Environment"
+    },
+    {
+      "navElement": "Genre"
+    },
+    {
+      "navElement": "Sustain"
+    },
+    {
+      "navElement": "Tone"
+    }
   ],
   "addToCart": "Add to Cart",
-  "goToCart": "GO TO CART"
+  "goToCart": "GO TO CART",
+  "paymentError": "There was an error processing your payment. Please try again or try with another card."
 }
